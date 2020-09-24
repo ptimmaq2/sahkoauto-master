@@ -112,30 +112,35 @@ a.appendChild(timppa);
 */
 
 // funktio, joka tekee markerin
-function lisaaMarker(crd, latauspiste = "", kuvake, teksti = "Olen tässä.", usagecost = "", connectiontype = "", osoite = "", kaupunki = "", kordinaattix = crd.latitude, kordinaattiy = crd.latitude, id) {
+function lisaaMarker(crd, latauspiste = "", kuvake, teksti = "Olen tässä.", usagecost = "", connectiontype = "", osoite = "",
+                     kaupunki = "", kordinaattix = crd.latitude, kordinaattiy = crd.latitude, tyyppi = "",
+                     acdc = "", käyttö="", pistokkeet) {
+   // try {
+        L.marker([crd.latitude, crd.longitude], kuvake).addTo(map).bindPopup("<b>" + teksti + '</b><br> <span class="osoite">' + osoite + ", " + kaupunki + "</span><br>" +
+            "<span class='pienempiteksti'>" + kordinaattix + ", " + kordinaattiy + "</span><br><br>" + "<b>Hinta:</b> " + usagecost + "<br>" + "<b>Tyyppi:</b> " + tyyppi +
+            "<br><b>Käyttö:</b> " + connectiontype + "<br>" + "<b>AC/DC:</b> " + acdc + "<br><br>" + käyttö + "<br><br> Määrä:" + pistokkeet + "<br>" +
+            '<br><a href="#" id="tismus"><div id=\"navigoi\">Navigoi</div></a>')
+            .on("click", function () {
+                /*  try {
+                      document.getElementById("nimi").innerHTML = latauspiste.AddressInfo.Title;
+                      document.getElementById("osoite").innerHTML = latauspiste.AddressInfo.AddressLine1;
+                      document.getElementById("kaupunki").innerHTML = latauspiste.AddressInfo.Town;
+                      document.getElementById("lisatiedot").innerHTML = latauspiste.AddressInfo.AccessComments;
+                      //hinta (kesken)
+                      document.getElementById("hinta").innerHTML = latauspiste.UsageCost;
+                      document.getElementById("provider").innerHTML = latauspiste.Connections[0].Level.Title;
+                      document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
+                  } catch (e) {
+                      // console.error(e.message);
+                  }*/
+                document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
 
-    L.marker([crd.latitude, crd.longitude], kuvake).addTo(map).bindPopup("<b>" + teksti + '</b><br> <span class="osoite">' + osoite + ", " + kaupunki + "</span><br>" + kordinaattix + ", " + kordinaattiy + "<br>" + usagecost + "<br>" + connectiontype + '<br><a href="#" id="tismus"><div id=\"navigoi\">Navigoi</div></a>')
-        .on("click", function () {
-            /*  try {
-                  document.getElementById("nimi").innerHTML = latauspiste.AddressInfo.Title;
-                  document.getElementById("osoite").innerHTML = latauspiste.AddressInfo.AddressLine1;
-                  document.getElementById("kaupunki").innerHTML = latauspiste.AddressInfo.Town;
-                  document.getElementById("lisatiedot").innerHTML = latauspiste.AddressInfo.AccessComments;
-                  //hinta (kesken)
-                  document.getElementById("hinta").innerHTML = latauspiste.UsageCost;
-                  document.getElementById("provider").innerHTML = latauspiste.Connections[0].Level.Title;
-                  document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
-              } catch (e) {
-                  // console.error(e.message);
-              }*/
-            document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
 
-
-        })
-
-    //.openPopup();
+            })
+        // L.marker.style.filter = 'hue-rotate(180deg)';
+        //.openPopup();
+    //} catch(error){}
 }
-
 // Funktio, joka ajetaan, jos paikkatietojen hakemisessa tapahtuu virhe
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -177,12 +182,21 @@ function haeLatauspisteet(crd) {
                 const lpPaikka = {
                     latitude: latauspisteet[i].AddressInfo.Latitude,
                     longitude: latauspisteet[i].AddressInfo.Longitude,
-                    greenIcon
+                    greenIcon,
                 };
 
-                lisaaMarker(lpPaikka, latauspisteet[i], {icon: greenIcon}, latauspisteet[i].AddressInfo.Title, latauspisteet[i].UsageCost, latauspisteet[i].Connections[0].Level.Title, latauspisteet[i].AddressInfo.AddressLine1, latauspisteet[i].AddressInfo.Town, latauspisteet[i].AddressInfo.Latitude, latauspisteet[i].AddressInfo.Longitude, [i]);
+            /*    for(let j = 0; j < latauspisteet[i].Connections[j].ConnectionType; j++) {
+                    const taulukko = [j];
+                    console.log(taulukko);
+                }*/
+                try {
+                    lisaaMarker(lpPaikka, latauspisteet[i], {icon: greenIcon}, latauspisteet[i].AddressInfo.Title, latauspisteet[i].UsageCost, latauspisteet[i].Connections[0].Level.Title,
+                        latauspisteet[i].AddressInfo.AddressLine1, latauspisteet[i].AddressInfo.Town, latauspisteet[i].AddressInfo.Latitude, latauspisteet[i].AddressInfo.Longitude,
+                        latauspisteet[i].Connections[0].ConnectionType.Title, latauspisteet[i].Connections[0].CurrentType.Title, latauspisteet[i].UsageType.Title, latauspisteet[i].NumberOfPoints);
 
+                } catch(error) {
 
+                }
             }
 
         })
@@ -212,9 +226,9 @@ nappi.addEventListener('click', function () {
         .then(function (paikka) {
             return paikka.json();
         })
-        .catch (function(error) {
-        console.log(error);
-    });
+        .catch(function (error) {
+            console.log(error);
+        });
     console.log(paikka);
 });
 

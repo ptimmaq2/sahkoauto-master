@@ -21,6 +21,7 @@ html, body, #map {
     border: 2px grey;
     display:inline-block;
     width:140px;
+    background-color: rgba(255, 255, 255, 0.85);
 }
 #haku:hover{
     border: 2px white;
@@ -30,6 +31,7 @@ html, body, #map {
     padding:7px 7px 10px 7px;
     border-radius:3px;
     border: 2px grey;
+    background-color: rgba(255, 255, 255, 0.85);
 }
 #nappi:hover {
     background-color: white;
@@ -126,12 +128,19 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+.jemma {
+    font-size:7pt;
+    margin:0;
+    text-shadow: 0.5px 0.5px black;
+}
 
 .ala {
     font-size: 10pt;
-    margin-top: 5px;
+    margin-top: 3px;
     font-style: italic;
     text-shadow: 1px 1px black;
+    margin-bottom:4px;
+
 }
 
 .ala2 {
@@ -146,7 +155,22 @@ h1 {
     text-shadow: 2px 2px #1e1e1e;
     font-size: 24pt;
 }
-
+.pienempiteksti {
+    font-size:8pt;
+    color: grey;
+}
+.img.leaflet-market-icon.leaflet-zoom-animated.leaflet-interactive:hover {
+    transform: scale(1.2);
+    transition: all ease 500ms;
+}
+.leaflet-popup-content-wrapper {
+    background-color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
+}
+.leaflet-popup-tip {
+    background-color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
+}
 #navigoi {
     width: 80px;
     text-align: center;
