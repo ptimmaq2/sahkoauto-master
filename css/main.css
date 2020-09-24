@@ -251,3 +251,15 @@ h6 {
   background-image: url(your/amazing/icon.png);
 }*/
 
+/*minimapin katoaminen luurilla ja kapeilla näytöillä
+@media only screen and (max-width: 620px) {
+    div.leaflet-bottom.leaflet-right {
+        display:none!important;
+    }
+
+    kesken
+}*/
+.compass-button {
+    padding:5px;
+}
+

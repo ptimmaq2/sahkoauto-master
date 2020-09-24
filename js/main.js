@@ -8,6 +8,7 @@
 //haulla markerin siirtyminen ja pisteiden päivittyminen siihen
 // marker merging mitä yritin, ,hyi
 //jos on useampia eri lataustyyppejä että näkyy kaikki, for loop tms.
+//korjaa tai poista toi hiton kompassi
 
 //glhf
 
@@ -97,6 +98,8 @@ const options = {
     timeout: 5000,
     maximumAge: 0,
 };
+//kompassi, huutista
+var kompassi =  new L.Control.Compass().addTo(map);
 
 // Funktio, joka ajetaan, kun paikkatiedot on haettu
 function success(pos) {
@@ -291,4 +294,5 @@ function appendData(vastaus) {
         p.innerHTML = latauspisteet[i].AddressInfo.Title;
     }
 }
-*/
+
+ */
