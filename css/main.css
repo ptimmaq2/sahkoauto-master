@@ -20,7 +20,7 @@ html, body, #map {
     padding:10px;
     border: 2px grey;
     display:inline-block;
-    width:140px;
+    width:150px;
     background-color: rgba(255, 255, 255, 0.85);
 }
 #haku:hover{
@@ -57,7 +57,7 @@ html, body, #map {
     backdrop-filter: blur(6px);
     color: white;
     width: 210px;
-    height: 80px;
+    height: 100px;
     border-radius: 3px;
     background-color: rgba(230, 57, 70, 0.8);
     margin: 5px;
@@ -76,7 +76,7 @@ html, body, #map {
     height: 36px;
     border-radius: 3px;
     background-color: rgba(30, 30, 30, 0.8);
-    margin-top: 105px;
+    margin-top: 125px;
     margin-left: 5px;
     text-align: center;
     padding: 20px 15px 0px 15px;
@@ -93,7 +93,7 @@ html, body, #map {
     height: 60px;
     border-radius: 3px;
     background-color: rgba(30, 30, 30, 0.8);
-    margin-top: 166px;
+    margin-top: 186px;
     margin-left: 5px;
     text-align: center;
     padding: 20px 15px 0px 15px;
@@ -130,13 +130,13 @@ body {
 }
 .jemma {
     font-size:7pt;
-    margin:0;
+    margin: 10px 0 0 0;
     text-shadow: 0.5px 0.5px black;
 }
 
 .ala {
     font-size: 10pt;
-    margin-top: 3px;
+    margin-top: 10px;
     font-style: italic;
     text-shadow: 1px 1px black;
     margin-bottom:4px;

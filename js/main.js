@@ -1,4 +1,20 @@
 'use strict';
+
+
+//to do:
+
+// range
+// haku
+//haulla markerin siirtyminen ja pisteiden päivittyminen siihen
+// marker merging mitä yritin, ,hyi
+//jos on useampia eri lataustyyppejä että näkyy kaikki, for loop tms.
+
+//glhf
+
+
+
+
+
 /*let kaytto1 = "";
 let kaytto = "";*/
 let paikka = null;
@@ -46,12 +62,20 @@ let googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z=
     maxZoom: 20,
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
 });
+let latauspaikatm = L.layerGroup();
 let baseMaps = {
     //"Satelliitti": googleSat,
     "Hybridi": googleHybrid,
     "Normaali": map,
 
 };
+let overlayMaps = {
+
+        "Latauspaikat": latauspaikatm
+
+}
+
+//minimappi
 var osm2 = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 0, maxZoom: 13});
 var miniMap = new L.Control.MiniMap(osm2).addTo(map);
 
@@ -64,7 +88,7 @@ map.on('exitFullscreen', function () {
     console.log('exited fullscreen');
 });
 
-L.control.layers(baseMaps).addTo(map);
+L.control.layers(baseMaps, overlayMaps).addTo(map);
 //loppuu Satelliittikuva
 
 // Asetukset paikkatiedon hakua varten (valinnainen)
@@ -96,6 +120,7 @@ function success(pos) {
     haeLatauspisteet(crd);
 }
 
+
 // funktio, joka keskittää kartan
 function paivitaKartta(crd, zoom) {
     map.setView([crd.latitude, crd.longitude], zoom);
@@ -114,33 +139,37 @@ a.appendChild(timppa);
 // funktio, joka tekee markerin
 function lisaaMarker(crd, latauspiste = "", kuvake, teksti = "Olen tässä.", usagecost = "", connectiontype = "", osoite = "",
                      kaupunki = "", kordinaattix = crd.latitude, kordinaattiy = crd.latitude, tyyppi = "",
-                     acdc = "", käyttö="", pistokkeet) {
-   // try {
-        L.marker([crd.latitude, crd.longitude], kuvake).addTo(map).bindPopup("<b>" + teksti + '</b><br> <span class="osoite">' + osoite + ", " + kaupunki + "</span><br>" +
-            "<span class='pienempiteksti'>" + kordinaattix + ", " + kordinaattiy + "</span><br><br>" + "<b>Hinta:</b> " + usagecost + "<br>" + "<b>Tyyppi:</b> " + tyyppi +
-            "<br><b>Käyttö:</b> " + connectiontype + "<br>" + "<b>AC/DC:</b> " + acdc + "<br><br>" + käyttö + "<br><br> Määrä:" + pistokkeet + "<br>" +
-            '<br><a href="#" id="tismus"><div id=\"navigoi\">Navigoi</div></a>')
-            .on("click", function () {
-                /*  try {
-                      document.getElementById("nimi").innerHTML = latauspiste.AddressInfo.Title;
-                      document.getElementById("osoite").innerHTML = latauspiste.AddressInfo.AddressLine1;
-                      document.getElementById("kaupunki").innerHTML = latauspiste.AddressInfo.Town;
-                      document.getElementById("lisatiedot").innerHTML = latauspiste.AddressInfo.AccessComments;
-                      //hinta (kesken)
-                      document.getElementById("hinta").innerHTML = latauspiste.UsageCost;
-                      document.getElementById("provider").innerHTML = latauspiste.Connections[0].Level.Title;
-                      document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
-                  } catch (e) {
-                      // console.error(e.message);
-                  }*/
-                document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
+                     acdc = "", käyttö = "", pistokkeet) {
 
 
-            })
-        // L.marker.style.filter = 'hue-rotate(180deg)';
-        //.openPopup();
+    // try {
+    L.marker([crd.latitude, crd.longitude], kuvake).addTo(map).bindPopup("<b>" + teksti + '</b><br> <span class="osoite">' + osoite + ", " + kaupunki + "</span><br>" +
+        "<span class='pienempiteksti'>" + kordinaattix + ", " + kordinaattiy + "</span><br><br>" + "<b>Hinta:</b> " + usagecost + "<br>" + "<b>Tyyppi:</b> " + tyyppi +
+        "<br><b>Käyttö:</b> " + connectiontype + "<br>" + "<b>AC/DC:</b> " + acdc + "<br><br>" + käyttö + "<br><br> Määrä:" + pistokkeet + "<br>" +
+        '<br><a href="#" id="tismus"><div id=\"navigoi\">Navigoi</div></a>').addTo(latauspaikatm)
+        .on("click", function () {
+
+            /*  try {
+                  document.getElementById("nimi").innerHTML = latauspiste.AddressInfo.Title;
+                  document.getElementById("osoite").innerHTML = latauspiste.AddressInfo.AddressLine1;
+                  document.getElementById("kaupunki").innerHTML = latauspiste.AddressInfo.Town;
+                  document.getElementById("lisatiedot").innerHTML = latauspiste.AddressInfo.AccessComments;
+                  //hinta (kesken)
+                  document.getElementById("hinta").innerHTML = latauspiste.UsageCost;
+                  document.getElementById("provider").innerHTML = latauspiste.Connections[0].Level.Title;
+                  document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
+              } catch (e) {
+                  // console.error(e.message);
+              }*/
+            document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
+
+
+        })
+    // L.marker.style.filter = 'hue-rotate(180deg)';
+    //.openPopup();
     //} catch(error){}
 }
+
 // Funktio, joka ajetaan, jos paikkatietojen hakemisessa tapahtuu virhe
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -185,16 +214,16 @@ function haeLatauspisteet(crd) {
                     greenIcon,
                 };
 
-            /*    for(let j = 0; j < latauspisteet[i].Connections[j].ConnectionType; j++) {
-                    const taulukko = [j];
-                    console.log(taulukko);
-                }*/
+                /*    for(let j = 0; j < latauspisteet[i].Connections[j].ConnectionType; j++) {
+                        const taulukko = [j];
+                        console.log(taulukko);
+                    }*/
                 try {
                     lisaaMarker(lpPaikka, latauspisteet[i], {icon: greenIcon}, latauspisteet[i].AddressInfo.Title, latauspisteet[i].UsageCost, latauspisteet[i].Connections[0].Level.Title,
                         latauspisteet[i].AddressInfo.AddressLine1, latauspisteet[i].AddressInfo.Town, latauspisteet[i].AddressInfo.Latitude, latauspisteet[i].AddressInfo.Longitude,
                         latauspisteet[i].Connections[0].ConnectionType.Title, latauspisteet[i].Connections[0].CurrentType.Title, latauspisteet[i].UsageType.Title, latauspisteet[i].NumberOfPoints);
 
-                } catch(error) {
+                } catch (error) {
 
                 }
             }
