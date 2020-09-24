@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Latauspisteet</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+
+    <!-- Fullscreen ominaisuus -->
+    <link rel="stylesheet" href="css/Control.FullScreen.css" />
+
+
+</head>
+<body>
+<div class="header">
+    <h1>Latauspisteet</h1>
+    <p class="ala">Helposti ja nopeasti lähellä olevat sähköautojen latauspaikat.</p>
+</div>
+
+  <div id="map"></div>
+
+    <main>
+        <div class="container">
+             <article>
+                   <h3 id="nimi">Otsikko</h3>
+                     <div class="viiva"></div>
+                   <h4 id="osoite">Testitie 5</h4>
+                   <p id="kaupunki">Somero</p>
+                   <p id="lisatiedot">Lisätietoja</p>
+                   <p id="hinta">Käyttöhinta</p>
+                   <p id="provider">ID</p>
+
+                <div class="tasaus">
+                    <a href="#"><div id="navigoi">Navigoi</div></a>
+
+              <div class="oikea">
+                 <div class="rangeslider">
+                     <input type="range" min="1" max="100" value="10" class="myslider" id="sliderRange">
+                  </div>
+
+              <p>Säde <span id="demo"></span> km</p>
+
+              </div>
+
+
+                 </div>
+
+            </article>
+    </div>
+<!--
+        <div class="footer">
+            <div class="pohja">
+                <h6>Latauspisteet, 2020.</h6>
+                <p>Timo Hyppönen, timojuhani.hypponen@gmail.com</p>
+            <p>Tehty Ilkka Kylmäniemen github projektin mukaan, johon pääset <a class="linkki" href="https://github.com/ilkkamtk/sahkoauto">tästä</a>.</p>
+                <p>Huom. Ison alueen latauspisteiden näyttämiseen voi mennä hetki.</p>
+                <p>Data tulee OpenChargeMapista, en takaa tietojen todenmukaisuutta.</p>
+            </div>
+        </div>-->
+    </main>
+
+
+<!-- kirjastot haetaan ennen omaa js-tiedostoa-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+
+
+<script src="js/Control.FullScreen.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

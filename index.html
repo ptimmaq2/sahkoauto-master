@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Latauspisteet</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href='kuvat/favicon.ico'/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Fullscreen ominaisuus -->
+    <link rel="stylesheet" href="css/Control.FullScreen.css"/>
+
+    <!-- grouping-->
+    <link rel="stylesheet" href="css/MarkerCluster.css"/>
+    <link rel="stylesheet" href="css/MarkerCluster.Default.css"/>
+    <link rel="stylesheet" href="css/Control.MiniMap.min.css"/>
+
+</head>
+<body>
+<div class="header">
+    <h1>Latauspisteet</h1>
+    <p class="ala">Helposti ja nopeasti lähellä olevat sähköautojen latauspaikat.</p>
+</div>
+
+<div class="header2">
+    <div class="rangeslider">
+        <input type="range" min="1" max="100" value="10" class="myslider" id="sliderRange"
+               style="display:block;margin:0;">
+    </div>
+    <label for="sliderRange" style="display:block;text-align:right;margin-top:-14px;"><span id="demo"></span> km</label>
+</div>
+
+<div class="header2-2" id="tuloksiatuloksia">
+    <input type="text" placeholder="Hae latauspisteitä nimellä" id="haku">
+    <button type="submit" id="nappi"><img src="kuvat/haku.png"></button>
+
+</div>
+<!--
+<div class="header3">
+    <p style="font-size:7pt;">Tiedot tulee OpenChargeMapista. En vastaa tietojen oikeellisuudesta.
+        timojuhani.hypponen@gmail.com</p>
+</div>-->
+<div id="map"></div><!--
+<button id="populate">Populate 1 marker</button>
+<button id="remove">Remove 1 marker</button>-->
+
+<main>
+</main>
+
+
+<!-- kirjastot haetaan ennen omaa js-tiedostoa-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+
+
+<script src="js/Control.FullScreen.js"></script>
+<script src="js/Control.MiniMap.min.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

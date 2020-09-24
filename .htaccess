@@ -1,0 +1,3 @@
+SetEnvIf Origin "http(s)?://(www\.)?(https://nominatim.openstreetmap.org)$" AccessControlAllowOrigin=$0$1
+Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+Header set Access-Control-Allow-Credentials true
