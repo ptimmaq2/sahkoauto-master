@@ -6,6 +6,10 @@ Kesken oleva sähköautosivusto
 
 
 Lähde: https://github.com/ilkkamtk/sahkoauto
+Ja muut lähteet:
+https://github.com/Leaflet/Leaflet.fullscreen
+https://github.com/Norkart/Leaflet-MiniMap
+https://github.com/Leaflet/Leaflet.markercluster
 
 Alkuperäisen projektin teksti:
 
