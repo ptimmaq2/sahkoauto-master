@@ -121,9 +121,10 @@ function success(pos) {
 
     //hae asemat
     //haeLatauspisteet(crd);
-    setInterval(function() {
+    /*rangeslider.oninput =*/
+    rangeslider.oninput = function() {
         haeLatauspisteet(crd);
-    }, 5000)
+    }
 }
 
 
@@ -189,6 +190,7 @@ let rangeslider = document.getElementById("sliderRange");
 let output = document.getElementById("demo");
 output.innerHTML = rangeslider.value;
 output.value
+/*
 rangeslider.oninput = function arvoja(arvot) {
     arvot = output.innerHTML = this.value;
    //arvot.
