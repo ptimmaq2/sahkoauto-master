@@ -21,7 +21,7 @@
     .header-mobile {
         color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        height: 10%;
+        height: 20%;
         background-color: rgba(230, 57, 70, 1);
         z-index:999;
     }
@@ -35,9 +35,22 @@
     }
 
     #map {
-        height: 90% !important;
+        height: 80% !important;
     }
 
+}
+@media only screen and (max-height:399px) {
+    .leaflet-bottom.leaflet-right {
+        display:none!important;
+    }
+}
+@media only screen and (max-height:329px) {
+    .header-mobile {
+        display:none!important;
+    }
+    #map {
+        height:100%!important;
+    }
 }
 
 html, body, #map {

@@ -120,7 +120,10 @@ function success(pos) {
 
 
     //hae asemat
-    haeLatauspisteet(crd);
+    //haeLatauspisteet(crd);
+    setInterval(function() {
+        haeLatauspisteet(crd);
+    }, 5000)
 }
 
 
@@ -186,9 +189,14 @@ let rangeslider = document.getElementById("sliderRange");
 let output = document.getElementById("demo");
 output.innerHTML = rangeslider.value;
 output.value
-rangeslider.oninput = function () {
-    let arvot = output.innerHTML = this.value;
+rangeslider.oninput = function arvoja(arvot) {
+    arvot = output.innerHTML = this.value;
+   //arvot.
+    console.log(arvot);
 }
+
+let testailu = output.innerHTML;
+
 /*
 let rasmus =  document.getElementById("sliderRange").value
 
@@ -200,9 +208,10 @@ let rasmus = 1;
 //openchargemap
 function haeLatauspisteet(crd) {
 
+
     fetch(
-        `https://api.openchargemap.io/v3/poi/?distanceunit=KM&latitude=${crd.latitude}&longitude=${crd.longitude}&maxresults=250`).then(function (vastaus) {
-        // console.log('palvelimen vastaus', vastaus);
+        `https://api.openchargemap.io/v3/poi/?distanceunit=KM&distance=${rangeslider.value}&latitude=${crd.latitude}&longitude=${crd.longitude}&maxresults=250`).then(function (vastaus) {
+        console.log('palvelimen vastaus', vastaus);
         return vastaus.json();
         //appendData(vastaus);
     })
