@@ -296,3 +296,7 @@ function appendData(vastaus) {
 }
 
  */
+
+function huomautus() {
+    alert("Tiedot tulevat OpenChargeMap API:sta. Emme vastaa tietojen oikeellisuudesta. Yhteydenotot: timojuhani.hypponen@gmail.com");
+}
