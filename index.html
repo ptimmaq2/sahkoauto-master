@@ -20,24 +20,34 @@
 
 </head>
 <body>
-<div class="header">
-    <h1>Latauspisteet</h1>
-    <p class="ala">Helposti ja nopeasti lähellä olevat sähköautojen latauspaikat.</p>
-    <p class="jemma">Emme vastaa tietojen oikeellisuudesta.</p>
-</div>
 
-<div class="header2">
-    <div class="rangeslider">
-        <input type="range" min="1" max="100" value="10" class="myslider" id="sliderRange"
-               style="display:block;margin:0;">
+<div class="header-mobile" id="tuloksiatuloksia">
+    <input type="text" placeholder="Hae paikkakuntia..." id="haku" style="width:60%;height:70px;margin:0px 0 0 20px;font-size:26pt;display: inline-block">
+    <button type="submit" id="nappi" style="margin-top:24px;padding-top:10px;padding-bottom:10px;display:inline-block"><img src="kuvat/haku.png" style="height:70px;width:70px;"></button>
+ <!--   <span class="mobiilih1">Latauspisteet</span>-->
+    <h1 style="display: inline-block;float: right;padding-top:20px;padding-right:20px; ">Latauspisteet</h1>
+</div>
+<div class="headers">
+    <div class="header">
+        <h1>Latauspisteet</h1>
+        <p class="ala">Helposti ja nopeasti lähellä olevat sähköautojen latauspaikat.</p>
+        <p class="jemma">Emme vastaa tietojen oikeellisuudesta.</p>
     </div>
-    <label for="sliderRange" style="display:block;text-align:right;margin-top:-14px;"><span id="demo"></span> km</label>
-</div>
 
-<div class="header2-2" id="tuloksiatuloksia">
-    <input type="text" placeholder="Hae paikkakuntia..." id="haku">
-    <button type="submit" id="nappi"><img src="kuvat/haku.png"></button>
+    <div class="header2">
+        <div class="rangeslider">
+            <input type="range" min="1" max="100" value="10" class="myslider" id="sliderRange"
+                   style="display:block;margin:0;">
+        </div>
+        <label for="sliderRange" style="display:block;text-align:right;margin-top:-14px;"><span id="demo"></span>
+            km</label>
+    </div>
 
+    <div class="header2-2" id="tuloksiatuloksia">
+        <input type="text" placeholder="Hae paikkakuntia..." id="haku">
+        <button type="submit" id="nappi"><img src="kuvat/haku.png"></button>
+
+    </div>
 </div>
 <!--
 <div class="header3">

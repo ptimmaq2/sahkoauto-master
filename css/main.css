@@ -1,5 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
 
+@media only screen and (min-width: 1025px) {
+    .compass-button {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .compass-button {
+        display: none !important;
+
+    }
+
+    .header-mobile {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .header-mobile {
+        color: white;
+        height: 10%;
+        background-color: rgba(230, 57, 70, 1);
+    }
+
+    .headers {
+        display: none !important;
+    }
+
+    .leaflet-control-zoom-fullscreen {
+        display: none !important;
+    }
+
+    #map {
+        height: 90% !important;
+    }
+
+}
+
 html, body, #map {
     height: 100%;
     width: 100%;
@@ -8,6 +46,7 @@ html, body, #map {
     position: relative;
 
 }
+
 .tulokset {
 
 }
@@ -15,28 +54,33 @@ html, body, #map {
 .leaflet-bottom leaflet-right {
     margin-bottom: 20px !important;
 }
+
 #haku {
     border-radius: 3px;
-    padding:10px;
+    padding: 10px;
     border: 2px grey;
-    display:inline-block;
-    width:150px;
+    display: inline-block;
+    width: 150px;
     background-color: rgba(255, 255, 255, 0.85);
 }
-#haku:hover{
+
+#haku:hover {
     border: 2px white;
 }
+
 #nappi {
-    display:inline-block;
-    padding:7px 7px 10px 7px;
-    border-radius:3px;
+    display: inline-block;
+    padding: 7px 7px 10px 7px;
+    border-radius: 3px;
     border: 2px grey;
     background-color: rgba(255, 255, 255, 0.85);
 }
+
 #nappi:hover {
     background-color: white;
     border: 2px white;
 }
+
 .container {
     width: 50%;
     align-content: center;
@@ -85,6 +129,7 @@ html, body, #map {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-shadow: 1px 1px black;
 }
+
 .header2-2 {
     vertical-align: center;
     backdrop-filter: blur(6px);
@@ -128,8 +173,9 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
 .jemma {
-    font-size:7pt;
+    font-size: 7pt;
     margin: 10px 0 0 0;
     text-shadow: 0.5px 0.5px black;
 }
@@ -139,7 +185,7 @@ body {
     margin-top: 10px;
     font-style: italic;
     text-shadow: 1px 1px black;
-    margin-bottom:4px;
+    margin-bottom: 4px;
 
 }
 
@@ -155,22 +201,27 @@ h1 {
     text-shadow: 2px 2px #1e1e1e;
     font-size: 24pt;
 }
+
 .pienempiteksti {
-    font-size:8pt;
+    font-size: 8pt;
     color: grey;
 }
+
 .img.leaflet-market-icon.leaflet-zoom-animated.leaflet-interactive:hover {
     transform: scale(1.2);
     transition: all ease 500ms;
 }
+
 .leaflet-popup-content-wrapper {
-    background-color: rgba(255,255,255,0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(6px);
 }
+
 .leaflet-popup-tip {
-    background-color: rgba(255,255,255,0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(6px);
 }
+
 #navigoi {
     width: 80px;
     text-align: center;
@@ -260,6 +311,6 @@ h6 {
     kesken
 }*/
 .compass-button {
-    padding:5px;
+    padding: 5px;
 }
 
