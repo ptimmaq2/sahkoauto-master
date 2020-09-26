@@ -123,8 +123,11 @@ function success(pos) {
   haeLatauspisteet(crd);
   //suorita uudestaan kun arvo muuttuu
   rangeslider.oninput = function() {
+    let kaks = document.getElementById("demo");
+    kaks.innerHTML = rangeslider.value;
     map.removeLayer(latauspaikatm);
     haeLatauspisteet(crd);
+
   };
 }
 
@@ -148,7 +151,7 @@ function lisaaMarker(crd, latauspiste = '', kuvake, teksti = 'Olen tässä.',
                      usagecost = '', connectiontype = '', osoite = '',
                      kaupunki = '', kordinaattix = crd.latitude,
                      kordinaattiy = crd.latitude, tyyppi = '',
-                     acdc = '', käyttö = '', pistokkeet) {
+                     acdc = '', käyttö = '', pistokkeet = "") {
 
   // try {
   L.marker([crd.latitude, crd.longitude], kuvake).
@@ -240,23 +243,26 @@ function haeLatauspisteet(crd) {
           /*    for(let j = 0; j < latauspisteet[i].Connections[j].ConnectionType; j++) {
                   const taulukko = [j];
                   console.log(taulukko);
-              }*/
-          try {
-            lisaaMarker(lpPaikka, latauspisteet[i], {icon: greenIcon},
-                latauspisteet[i].AddressInfo.Title, latauspisteet[i].UsageCost,
-                latauspisteet[i].Connections[0].Level.Title,
-                latauspisteet[i].AddressInfo.AddressLine1,
-                latauspisteet[i].AddressInfo.Town,
-                latauspisteet[i].AddressInfo.Latitude,
-                latauspisteet[i].AddressInfo.Longitude,
-                latauspisteet[i].Connections[0].ConnectionType.Title,
-                latauspisteet[i].Connections[0].CurrentType.Title,
-                latauspisteet[i].UsageType.Title,
-                latauspisteet[i].NumberOfPoints);
+              }
+          //   try {
+          for (let j = 0; j < Connections.length; j++) {
+            latauspisteet[i].Connections[j].Level.Title
+          }*/
+          lisaaMarker(lpPaikka, latauspisteet[i], {icon: greenIcon},
+              latauspisteet[i].AddressInfo.Title, latauspisteet[i].UsageCost,
+              latauspisteet[i].Connections[0].Level.Title,
+              latauspisteet[i].AddressInfo.AddressLine1,
+              latauspisteet[i].AddressInfo.Town,
+              latauspisteet[i].AddressInfo.Latitude,
+              latauspisteet[i].AddressInfo.Longitude,
+              latauspisteet[i].Connections[0].ConnectionType.Title,
+              latauspisteet[i].Connections[0].CurrentType.Title,
+              latauspisteet[i].UsageType.Title,
+              latauspisteet[i].NumberOfPoints);
 
-          } catch (error) {
+          //   } catch (error) {
 
-          }
+          //  }
         }
 
       }).
