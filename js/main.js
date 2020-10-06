@@ -77,7 +77,7 @@ let overlayMaps = {
 //minimappi
 var osm2 = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {minZoom: 0, maxZoom: 13});
-var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+var miniMap = new L.Control.MiniMap(osm2, {toggleDisplay: true}).addTo(map);
 
 // events are fired when entering or exiting fullscreen.
 map.on('enterFullscreen', function() {
