@@ -47,6 +47,8 @@ const map = new L.Map('map', {
   },
 });
 
+L.control.locate({position:'bottomleft'}).addTo(map);
+
 //map.addControl(control.zoom({ position: 'bottomright' }));
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | Google tilelayers',
@@ -169,7 +171,7 @@ function lisaaMarker(crd, latauspiste = '', kuvake, teksti = 'Olen tässä.',
       addTo(latauspaikatm).
       on('click', function() {
 
-        /*  try {
+        try {
               document.getElementById("nimi").innerHTML = latauspiste.AddressInfo.Title;
               document.getElementById("osoite").innerHTML = latauspiste.AddressInfo.AddressLine1;
               document.getElementById("kaupunki").innerHTML = latauspiste.AddressInfo.Town;
@@ -180,7 +182,7 @@ function lisaaMarker(crd, latauspiste = '', kuvake, teksti = 'Olen tässä.',
               document.getElementById('tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
           } catch (e) {
               // console.error(e.message);
-          }*/
+          }
         document.getElementById(
             'tismus').href = `https://www.google.com/maps/dir/?api=1&origin=${paikka.latitude},${paikka.longitude}&destination=${crd.latitude},${crd.longitude}&travelmode=driving`;
 
