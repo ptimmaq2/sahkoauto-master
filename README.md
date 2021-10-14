@@ -4,6 +4,8 @@
 Kesken oleva sähköautosivusto
 Live demo: https://sahkoauto-master.vercel.app/
 
+![Image of the site](https://github.com/ptimmaq2/sahkoauto-master/blob/master/sahkoauto.png)
+
 
 
 Lähde: https://github.com/ilkkamtk/sahkoauto
